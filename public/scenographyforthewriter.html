@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scenographyforthewriter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    /* Flexbox layout to cleanly stack everything top-to-bottom */
+    .gallery-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px; /* Space between each image */
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .gallery-image {
+      width: 100%;       /* Makes images responsive */
+      height: auto;      /* Maintains aspect ratio */
+      max-width: 600px;  /* Prevents small images from stretching too wide */
+      border-radius: 4px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- The container where images will drop into -->
+  <div class="gallery-container" id="gallery"></div>
+
+  <script>
+    // 1. MANUALLY LIST YOUR PNG FILENAMES HERE
+    // Change "images/" to match your actual folder name
+    const folderPath = "scenographyforthewriter/"; 
+    const imageFiles = [
+      "BOTTLE PROJECTION.jpg",
+      "DOOR PROTOTYPE.jpg",
+      "PAINTING BOTTLE.jpg",
+      "PAINTING TOM 2.jpg",
+      "PROTOTYPE TEST 2.jpg",
+      "PROTOTYPE TEST.jpg",
+      "SWEPT UP DETAIL.jpg",
+    ];
+
+    const videoFile = "THE WRITER ACT 4 ONE TO ONE.mp4"
+
+    const gallery = document.getElementById("gallery");
+
+    // 2. Loop through the array and inject images into the page
+    imageFiles.forEach(fileName => {
+      const img = document.createElement("img");
+      img.src = folderPath + fileName;
+      img.alt = fileName;
+      img.className = "gallery-image";
+      gallery.appendChild(img);
+      });
+
+if(videoFile){
+  const video = document.createElement("video");
+  video.src = folderPath + videoFile;
+  video.className = "gallery-image";
+  video.controls = false;
+  video.loop = true;
+  video.playsInline = true;
+  video.muted = true;
+  video.autoplay = true;
+  gallery.appendChild(video);
+}
+
+    
+  </script>
+
+</body>
+</html>
