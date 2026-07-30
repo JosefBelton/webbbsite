@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>consumption</title>
+  <title>graphic injector</title>
   <style>
     body {
       margin: 0;
@@ -20,8 +20,8 @@
     }
     .gallery-image {
       width: 100%;       
-      height: auto;     
-      max-width: 1000px; 
+      height: auto;      
+      object-fit: contain;
       border-radius: 4px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
@@ -29,36 +29,30 @@
 </head>
 <body>
 
+  
   <div class="gallery-container" id="gallery"></div>
 
   <script>
-    const folderPath = "consumption/"; 
+  
+    const folderPath = "assets/"; 
     const imageFiles = [
-      // "Final Materials .jpg",
-      "Moment 1 perspective final.jpg",
-      "Moment 2 perspective final.jpg",
-      "Moment 3 perspective final.jpg",
-      "part two moment 1 final.jpg",
-      "part two moment 2 final.jpg",
-      "part two moment 3 final.jpg",
-      "Final patch map_shrunk.jpg",
-      "patchview3.PNG",
-      "patchview4.PNG",
-      "patchview5.PNG",
-      "patchview6.PNG",
-      "patchview7.PNG",
-
+      "frog.webp",
+      "inanga.webp",
+      "mushyMarket.webp",
+      "tree.webp",
+      "tuna.webp",
     ];
 
     const gallery = document.getElementById("gallery");
+    const randomIndex = Math.floor(Math.random() * imageFiles.length);
+    const randFile = imageFiles[randomIndex];
 
-    imageFiles.forEach(fileName => {
-      const img = document.createElement("img");
-      img.src = folderPath + fileName;
-      img.alt = fileName;
+      const img = document.createElement("img"); //this changes to random
+      img.src = folderPath + randFile;
+      img.alt = randFile;
       img.className = "gallery-image";
       gallery.appendChild(img);
-    });
+    
   </script>
 
 </body>

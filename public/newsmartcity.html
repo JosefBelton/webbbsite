@@ -14,14 +14,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px; /* Space between each image */
+      gap: 30px; 
       max-width: 800px;
       margin: 0 auto;
     }
     .gallery-image {
-      width: 100%;       /* Makes images responsive */
-      height: auto;      /* Maintains aspect ratio */
-      max-width: 600px;  /* Prevents small images from stretching too wide */
+      width: 100%;       
+      height: auto;      
+      max-width: 1000px;  
       border-radius: 4px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
@@ -29,37 +29,48 @@
 </head>
 <body>
 
-  <!-- The container where images will drop into -->
+  
   <div class="gallery-container" id="gallery"></div>
 
   <script>
-    // 1. MANUALLY LIST YOUR PNG FILENAMES HERE
-    // Change "images/" to match your actual folder name
+  
     const folderPath = "newsmartcity/"; 
     const imageFiles = [
-      
-      "Josef_Belton_2.png",
-      "Josef_Belton_3.png",
-      "Josef_Belton_4.png",
-      "Josef_Belton_5.png",
-      "Josef_Belton_6.png",
-      "Josef_Belton_7.png",
-      "Josef_Belton_8.png",
-      "Josef_Belton_9.png",
-      "Josef_Belton_10.png",
-      
+      "Josef_Belton_2.webp",
+      "Josef_Belton_3.webp",
+      "Josef_Belton_4.webp",
+      "Josef_Belton_5.webp",
+      "Josef_Belton_6.webp",
+      "Josef_Belton_7.webp",
+      "Josef_Belton_8.webp",
+      "Josef_Belton_9.webp",
+      "Josef_Belton_10.webp",
     ];
+        const videoFile = "vid1.mp4";
 
     const gallery = document.getElementById("gallery");
 
-    // 2. Loop through the array and inject images into the page
+    // put images on page
     imageFiles.forEach(fileName => {
       const img = document.createElement("img");
       img.src = folderPath + fileName;
       img.alt = fileName;
       img.className = "gallery-image";
       gallery.appendChild(img);
-    });
+});
+       if(videoFile){
+  const video = document.createElement("video");
+  video.src = folderPath + videoFile;
+  video.className = "gallery-image";
+  video.controls = false;
+  video.loop = true;
+  video.playsInline = true;
+  video.muted = true;
+  video.autoplay = true;
+  gallery.appendChild(video);
+};
+
+    
   </script>
 
 </body>
